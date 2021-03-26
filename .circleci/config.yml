@@ -30,3 +30,8 @@ jobs:
       - run:
           name: Rspec
           command: bundle exec rspec
+
+workflows:
+  version: 2
+  jobs:
+    - rspec
