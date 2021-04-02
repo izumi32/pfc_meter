@@ -1,1 +1,1 @@
-Sample edit
+caching_sha2_passwordをmysql_native_passwordに書き換え
