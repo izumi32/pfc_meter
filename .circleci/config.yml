@@ -6,11 +6,13 @@ jobs:
         environment:
           RAILS_ENV: test
           MYSQL_HOST: 127.0.0.1
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: ''
       - image: circleci/mysql:8.0
-        environment:
-          MYSQL_USER: 'root'
-          MYSQL_PASSWORD: 'password'
-    working_directory: ~/repo
+        # environment:
+        #   MYSQL_USER: 'root'
+        #   MYSQL_PASSWORD: 'password'
+    working_directory: ~/practive_dir
     steps:
       - checkout
       - restore_cache:
@@ -19,7 +21,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
-      - run: yarn install
+      # - run: yarn install
       - save_cache:
           paths:
             - ./vendor/bundle
@@ -28,5 +30,20 @@ jobs:
       - run: bundle exec rake db:schema:load
       # Rspec
       - run:
-          name: Rspec
-          command: bundle exec rspec
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+
+            bundle exec rspec --format progress \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress \
+                            $TEST_FILES
+
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
