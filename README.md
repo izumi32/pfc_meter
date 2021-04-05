@@ -1,3 +1,4 @@
 caching_sha2_passwordをmysql_native_passwordに書き換え
 コンテナ再起動
 コンテナ再構築
+practice_dir_testをcreate
