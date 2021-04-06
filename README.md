@@ -4,4 +4,6 @@ caching_sha2_passwordをmysql_native_passwordに書き換え
 practice_dir_testをcreate
 
 $ docker-compose run --rm web rake db:create    
-$ docker-compose run web bin/rails db:migrate RAILS_ENV=test 
+$ docker-compose run web bin/rails db:migrate RAILS_ENV=test
+
+ターミナル上でbundle exec rake db:schema:loadできる
