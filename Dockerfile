@@ -1,16 +1,18 @@
 FROM ruby:2.6
-WORKDIR /tmp
-RUN apt update && apt install -y lsb-release \
-    && apt remove -y libmariadb-dev-compat libmariadb-dev
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update -qq \
+    && apt-get install -y nodejs yarn \
+    && mkdir /pfc_meter
+WORKDIR /pfc_meter
+COPY Gemfile /pfc_meter/Gemfile
+COPY Gemfile.lock /pfc_meter/Gemfile.lock
+RUN bundle install
+COPY . /pfc_meter
 
-RUN wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-common_8.0.18-1debian10_amd64.deb \
-    https://dev.mysql.com/get/Downloads/MySQL-8.0/libmysqlclient21_8.0.18-1debian10_amd64.deb \
-    https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client-core_8.0.18-1debian10_amd64.deb \
-    https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client_8.0.18-1debian10_amd64.deb \
-    https://dev.mysql.com/get/Downloads/MySQL-8.0/libmysqlclient-dev_8.0.18-1debian10_amd64.deb
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 3000
 
-RUN dpkg -i mysql-common_8.0.18-1debian10_amd64.deb \
-    libmysqlclient21_8.0.18-1debian10_amd64.deb \
-    mysql-community-client-core_8.0.18-1debian10_amd64.deb \
-    mysql-community-client_8.0.18-1debian10_amd64.deb \
-    libmysqlclient-dev_8.0.18-1debian10_amd64.deb
+CMD ["rails", "server", "-b", "0.0.0.0"]
