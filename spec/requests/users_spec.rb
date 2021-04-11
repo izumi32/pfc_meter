@@ -1,15 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
-  describe "#show" do
+RSpec.describe "Users", type: :request do
 
-    before do
-      @user = FactoryBot.create(:user)
+  let(:user) { FactoryBot.create(:user) }
+
+  context "#show" do
+    it "userページにアクセス" do
+      get user_path(user)
+      expect(response).to have_http_status(200)
     end
+  end
 
-    it "正常にレスポンスを返す" do
-      # get :show, { user_id: @user.id }
-      # expect(response).to be_success
+  context "#edit" do
+    it "編集ページにアクセス" do
+      get edit_user_path(user)
+      expect(response).to have_http_status(200)
     end
   end
 end
