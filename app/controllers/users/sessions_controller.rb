@@ -2,17 +2,21 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :authenticate_user!
 
+  def after_sign_in_path_for(resource)
+    @user = User.find_by(email: params[:user][:email])
+    @user
+  end
   # GET /resource/sign_in
   # def new
   #   super
   # end
 
   # POST /resource/sign_in
-  def create
-    @user = User.find_by(email: params[:email])
-    redirect_to @user
-  end
+  # def create
+  #
+  # end
 
   # DELETE /resource/sign_out
   # def destroy

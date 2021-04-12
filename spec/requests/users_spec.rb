@@ -18,7 +18,7 @@ RSpec.describe "Users", type: :request do
     end
 
     describe "#edit" do
-      it "user/editページにアクセス" do
+      it "editビューにアクセス" do
         get edit_user_path(user)
         expect(response).to have_http_status(200)
       end
@@ -50,7 +50,7 @@ RSpec.describe "Users", type: :request do
     end
 
     describe "#edit" do
-      it "user/editページにアクセス" do
+      it "editビューにアクセス" do
         get edit_user_path(user)
         expect(response).to redirect_to new_user_session_path
       end
