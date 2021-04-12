@@ -12,9 +12,23 @@ RSpec.describe "Users", type: :request do
   end
 
   describe "#edit" do
-    it "編集ページにアクセス" do
+    it "user/editページにアクセス" do
       get edit_user_path(user)
       expect(response).to have_http_status(200)
+    end
+  end
+
+  describe "#update" do
+    it "userを更新" do
+      patch user_path(user), params: { user: { name: "edit user" } }
+      user.reload
+      expect(user.name).to eq "edit user"
+    end
+
+    it "userを更新後user/showページにリダイレクト" do
+      patch user_path(user), params: { user: { name: "edit user" } }
+      user.reload
+      expect(response).to redirect_to user_path(user)
     end
   end
 
