@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'devise'
   gem 'factory_bot_rails', '~> 4.10.0'
+  gem 'rails-controller-testing'
 end
 
 group :test do
