@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_in_path_for(resource)
     @user = User.find_by(email: params[:user][:email])
-    @user
   end
   # GET /resource/sign_up
   # def new
