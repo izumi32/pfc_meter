@@ -1,0 +1,22 @@
+<h1>食材登録</h1>
+
+<%= form_with(model: @food, local: true) do |f| %>
+
+  <%= f.label :food_name, "食材名" %>
+  <%= f.text_field :food_name, class: "form-controll" %>
+
+  <%= f.label :protein, "タンパク質" %>
+  <%= f.text_field :protein, class: "form-controll" %>
+
+  <%= f.label :fat, "脂質" %>
+  <%= f.text_field :fat, class: "form-controll" %>
+
+  <%= f.label :carbohydrate, "炭水化物" %>
+  <%= f.text_field :carbohydrate, class: "form-controll" %>
+
+  <%= f.label :date, "日付" %>
+  <%= f.date_field :date, class: "form-controll" %>
+
+  <%= f.submit "登録", class: "btn btn-primary" %>
+
+<% end %>
