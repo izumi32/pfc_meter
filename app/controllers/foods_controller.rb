@@ -12,6 +12,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:food_name, :protein, :fat, :carbohydrate, :date)
+    params.require(:food).permit(:food_name, :protein, :fat, :carbohydrate, :date, :unit)
   end
 end

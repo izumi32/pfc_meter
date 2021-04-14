@@ -17,6 +17,7 @@ RSpec.feature "Foods", type: :feature do
       fill_in "脂質", with: 20
       fill_in "炭水化物", with: 20
       fill_in "日付", with: DateTime.now
+      fill_in "量", with: 100
 
       click_button "登録"
     }.to change(user.foods, :count).by(1)
