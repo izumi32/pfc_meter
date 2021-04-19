@@ -2,5 +2,39 @@
 
 <h2>今日食べたもの</h2>
 
+<table>
+  <tr>
+    <th>食材名</th>
+    <th>カロリー</th>
+    <th>タンパク質</th>
+    <th>脂質</th>
+    <th>炭水化物</th>
+    <th>量</th>
+    <th>備考</th>
+  </tr>
+
+  <% @foods.each do |food| %>
+  <% calorie = food.protein * 4 + food.fat * 9 + food.carbohydrate * 4 %>
+  <tr>
+    <th><%= food.food_name %></th>
+    <th><%= calorie %>g</th>
+    <th><%= food.protein%>g</th>
+    <th><%= food.fat %>g</th>
+    <th><%= food.carbohydrate %>g</th>
+    <th><%= food.unit %>%</th>
+    <th><%= food.remarks %></th>
+  </tr>
+  <% end %>
+
+  <tr>
+    <th>合計</th>
+    <th><%= @foods.sum(:protein) * 4 + @foods.sum(:fat) * 9 + @foods.sum(:carbohydrate) * 4 %>g</th>
+    <th><%= @foods.sum(:protein) %>g</th>
+    <th><%= @foods.sum(:fat) %>g</th>
+    <th><%= @foods.sum(:carbohydrate) %>g</th>
+  </tr>
+
+</table>
+
 <%= link_to "食材登録", new_food_path %>
 <%= link_to "カロリー設定", "#" %>

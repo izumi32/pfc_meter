@@ -6,7 +6,12 @@ class FoodsController < ApplicationController
 
   def create
     @food = current_user.foods.build(food_params)
-    @food.save
+    if @food.save
+      flash[:success] = "食材を登録しました"
+      redirect_to current_user
+    else
+      render 'foods/new'
+    end
   end
 
   private
