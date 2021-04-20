@@ -29,8 +29,8 @@ RSpec.describe Food, type: :model do
     expect(food).to_not be_valid
   end
 
-  it "unitが空の場合エラーを返す" do
-    food.unit = ""
+  it "amountが空の場合エラーを返す" do
+    food.amount = ""
     expect(food).to_not be_valid
   end
 end

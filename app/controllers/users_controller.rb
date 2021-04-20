@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @foods = @user.foods.where(date: DateTime.now)
+    @foods = @user.foods.where(date: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day)
   end
 
   def edit

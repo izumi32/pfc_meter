@@ -5,5 +5,5 @@ class Food < ApplicationRecord
   validates :fat, presence: true
   validates :carbohydrate, presence: true
   validates :date, presence: true
-  validates :unit, presence: true
+  validates :amount, presence: true
 end

@@ -4,8 +4,8 @@ FactoryBot.define do
     protein 7.4
     fat 6.2
     carbohydrate 0.2
-    date DateTime.now
-    unit 100
+    date Time.zone.now
+    amount 100
     association :user
   end
 end
