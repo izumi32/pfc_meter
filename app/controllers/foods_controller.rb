@@ -16,10 +16,26 @@ class FoodsController < ApplicationController
   end
 
   def edit
+    @food = Food.find(params[:id])
+  end
 
+  def update
+    @food = Food.find(params[:id])
+    @user = User.find(@food.user_id)
+    if @food.update(food_params)
+      flash[:success] = "食材情報を更新しました"
+      redirect_to user_path(@user)
+    else
+      render 'foods/edit'
+    end
   end
 
   private
+
+  def food_params
+    params.require(:food)
+    .permit(:food_name, :protein, :fat, :carbohydrate, :date, :amount)
+  end
 
   def food_collection_params
     params.require(:form_food_collection)
