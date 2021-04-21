@@ -1,11 +1,11 @@
 class FoodsController < ApplicationController
 
   def new
-    @food = current_user.foods.build
+    @food = Form::FoodCollection.new
   end
 
   def create
-    @food = current_user.foods.build(food_params)
+    @food = Form::FoodCollection.new(food_collection_params)
     if @food.save
       flash[:success] = "食材を登録しました"
       redirect_to current_user
@@ -16,7 +16,8 @@ class FoodsController < ApplicationController
 
   private
 
-  def food_params
-    params.require(:food).permit(:food_name, :protein, :fat, :carbohydrate, :date, :amount)
+  def food_collection_params
+    params.require(:form_food_collection)
+    .permit(foods_attributes: [:food_name, :protein, :fat, :carbohydrate, :date, :amount])
   end
 end
