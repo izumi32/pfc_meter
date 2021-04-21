@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @food = Form::FoodCollection.new
@@ -12,6 +13,10 @@ class FoodsController < ApplicationController
     else
       render 'foods/new'
     end
+  end
+
+  def edit
+
   end
 
   private
