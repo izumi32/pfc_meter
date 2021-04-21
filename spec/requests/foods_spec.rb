@@ -25,7 +25,7 @@ RSpec.describe "Foods", type: :request do
     end
   end
 
-  describe "#update" do
+  describe "#update", focus: true do
 
     context "ログインユーザー" do
 
@@ -41,6 +41,27 @@ RSpec.describe "Foods", type: :request do
 
       it "食材を更新できずログイン画面にリダイレクト" do
         patch food_path(food), params: { food: { food_name: "ゆで卵" } }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
+  describe "#destroy" do
+
+    context "ログインユーザー" do
+
+      it "食材を削除" do
+        login_as user
+        food.save
+        expect {
+          delete food_path(food)
+        }.to change(user.foods, :count).by(-1)
+      end
+    end
+
+    context "ゲストユーザー" do
+      it "食材削除に失敗" do
+        delete food_path(food)
         expect(response).to redirect_to new_user_session_path
       end
     end

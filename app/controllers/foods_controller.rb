@@ -30,6 +30,13 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    food = Food.find(params[:id])
+    @user = User.find(food.user_id)
+    food.destroy
+    redirect_to @user
+  end
+
   private
 
   def food_params

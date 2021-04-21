@@ -24,6 +24,7 @@
     <th><%= food.amount %>%</th>
     <th><%= food.remarks %></th>
     <th><%= link_to "編集", edit_food_path(food) %></th>
+    <th><%= link_to "削除", food, method: :delete %></th>
   </tr>
   <% end %>
 
