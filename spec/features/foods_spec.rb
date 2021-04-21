@@ -12,12 +12,12 @@ RSpec.feature "Foods", type: :feature do
 
     expect {
       click_link "食材登録"
-      fill_in "食材名", with: "サンプル"
-      fill_in "タンパク質", with: 20
-      fill_in "脂質", with: 20
-      fill_in "炭水化物", with: 20
-      fill_in "日付", with: Time.zone.now
-      fill_in "量", with: 100
+      fill_in "食材名", with: "サンプル", match: :first
+      fill_in "タンパク質", with: 20, match: :first
+      fill_in "脂質", with: 20, match: :first
+      fill_in "炭水化物", with: 20, match: :first
+      fill_in "日付", with: Time.zone.now, match: :first
+      fill_in "量", with: 100, match: :first
 
       click_button "登録"
     }.to change(user.foods, :count).by(1)
@@ -33,24 +33,25 @@ RSpec.feature "Foods", type: :feature do
     click_button "Log in"
 
     click_link "食材登録"
-    fill_in "食材名", with: "今日の登録"
-    fill_in "タンパク質", with: 20
-    fill_in "脂質", with: 20
-    fill_in "炭水化物", with: 20
-    fill_in "日付", with: Time.zone.now
-    fill_in "量", with: 100
+    fill_in "食材名", with: "今日の登録", match: :first
+    fill_in "タンパク質", with: 20, match: :first
+    fill_in "脂質", with: 20, match: :first
+    fill_in "炭水化物", with: 20, match: :first
+    fill_in "日付", with: Time.zone.now, match: :first
+    fill_in "量", with: 100, match: :first
     click_button "登録"
 
     click_link "食材登録"
-    fill_in "食材名", with: "昨日の登録"
-    fill_in "タンパク質", with: 20
-    fill_in "脂質", with: 20
-    fill_in "炭水化物", with: 20
-    fill_in "日付", with: Time.zone.yesterday
-    fill_in "量", with: 100
+    fill_in "食材名", with: "昨日の登録", match: :first
+    fill_in "タンパク質", with: 20, match: :first
+    fill_in "脂質", with: 20, match: :first
+    fill_in "炭水化物", with: 20, match: :first
+    fill_in "日付", with: Time.zone.yesterday, match: :first
+    fill_in "量", with: 100, match: :first
     click_button "登録"
 
     expect(page).to have_content "今日の登録"
     expect(page).to_not have_content "昨日の登録"
   end
+
 end
