@@ -17,6 +17,14 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def history
+    @user = User.find(params[:id])
+  end
+
+  def display
+
+  end
+
   private
 
   def user_params

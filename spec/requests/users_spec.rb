@@ -38,6 +38,13 @@ RSpec.describe "Users", type: :request do
       end
     end
 
+    describe "#history" do
+      it "historyビューにアクセス" do
+        get history_user_path(user)
+        expect(response).to have_http_status(200)
+      end
+    end
+
   end
 
   context "非ログイン時" do
@@ -60,6 +67,13 @@ RSpec.describe "Users", type: :request do
       it "userを更新" do
         patch user_path(user), params: { user: { name: "edit user" } }
         user.reload
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    describe "#history" do
+      it "historyビューにアクセス" do
+        get history_user_path(user)
         expect(response).to redirect_to new_user_session_path
       end
     end

@@ -25,7 +25,7 @@ RSpec.describe "Foods", type: :request do
     end
   end
 
-  describe "#update", focus: true do
+  describe "#update" do
 
     context "ログインユーザー" do
 
