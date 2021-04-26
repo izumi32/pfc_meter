@@ -19,10 +19,7 @@ class UsersController < ApplicationController
 
   def history
     @user = User.find(params[:id])
-  end
-
-  def display
-
+    @foods = @user.foods.where(date: params[:date])
   end
 
   private
