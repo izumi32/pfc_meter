@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if date = params[:date]
       @foods = @user.foods.where(date: Time.parse(date).beginning_of_day..Time.parse(date).end_of_day)
+    else
+      @foods = @user.foods.where(date: Time.zone.yesterday.beginning_of_day..Time.zone.yesterday.end_of_day)
     end
   end
 

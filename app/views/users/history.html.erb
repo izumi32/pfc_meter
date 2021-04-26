@@ -1,8 +1,4 @@
-<% if @foods.nil? %>
-  <h1>昨日の登録</h1>
-<% else %>
-
-<% end %>
+<h1>過去の登録</h1>
 
 <%= form_with url: history_user_path(@user), method: :post do |f| %>
 
@@ -12,4 +8,41 @@
   <%= f.submit "表示", class: "btn btn-primary" %>
 <% end %>
 
-<%= @foods.first.food_name %>
+<% if @foods.present? %>
+  <h3><%= @foods.first.date.strftime("%Y年%m月%d日") %></h3>
+<% end %>
+
+<table>
+  <tr>
+    <th>食材名</th>
+    <th>カロリー</th>
+    <th>タンパク質</th>
+    <th>脂質</th>
+    <th>炭水化物</th>
+    <th>量</th>
+    <th>備考</th>
+  </tr>
+
+  <% @foods.each do |food| %>
+  <% calorie = food.protein * 4 + food.fat * 9 + food.carbohydrate * 4 %>
+    <tr>
+      <th><%= food.food_name %></th>
+      <th><%= calorie %>kcal</th>
+      <th><%= food.protein%>g</th>
+      <th><%= food.fat %>g</th>
+      <th><%= food.carbohydrate %>g</th>
+      <th><%= food.amount %>%</th>
+      <th><%= food.remarks %></th>
+      <th><%= link_to "編集", edit_food_path(food) %></th>
+      <th><%= link_to "削除", food, method: :delete %></th>
+    </tr>
+  <% end %>
+
+  <tr>
+    <th>合計</th>
+    <th><%= @foods.sum(:protein) * 4 + @foods.sum(:fat) * 9 + @foods.sum(:carbohydrate) * 4 %>kcal</th>
+    <th><%= @foods.sum(:protein) %>g</th>
+    <th><%= @foods.sum(:fat) %>g</th>
+    <th><%= @foods.sum(:carbohydrate) %>g</th>
+  </tr>
+</table>
