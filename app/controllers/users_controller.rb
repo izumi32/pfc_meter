@@ -19,12 +19,18 @@ class UsersController < ApplicationController
 
   def history
     @user = User.find(params[:id])
-    @foods = @user.foods.where(date: params[:date])
+    if date = params[:date]
+      @foods = @user.foods.where(date: Time.parse(date).beginning_of_day..Time.parse(date).end_of_day)
+    end
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def food_params
+    params.require(:food).permit(:date)
   end
 end
