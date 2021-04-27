@@ -4,7 +4,7 @@ RSpec.feature "Users", type: :feature do
 
   let(:user) { FactoryBot.create(:user) }
 
-  scenario "過去の登録ページにアクセス" ,focus: true do
+  scenario "過去の登録ページにアクセス" do
 
     visit root_path
     click_link "ログイン"
