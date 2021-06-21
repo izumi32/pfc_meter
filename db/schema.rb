@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_061104) do
+ActiveRecord::Schema.define(version: 2021_06_21_042854) do
 
   create_table "calories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "protein"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2021_04_27_061104) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.integer "amount"
     t.datetime "date"
+    t.integer "amount"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
