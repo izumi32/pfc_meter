@@ -21,6 +21,8 @@ RSpec.feature "Calories", type: :feature do
 
     click_button "登録"
 
-    expect(user.calorie).to be_valid
+    expect(user.calorie.protein).to eq 130
+    expect(user.calorie.fat).to eq 60
+    expect(user.calorie.carbohydrate).to eq 350
   end
 end
