@@ -1,4 +1,34 @@
-<%= @user.name %>
+<% unless current_user.calorie.nil? %>
+
+  <h2>目標カロリー</h2>
+
+  <% calorie_of_day = current_user.calorie.protein * 4 + current_user.calorie.fat * 9 + current_user.calorie.carbohydrate * 4 %>
+  <% calorie_sum = @foods.sum(:protein) * 4 + @foods.sum(:fat) * 9 + @foods.sum(:carbohydrate) * 4 %>
+  <table>
+    <tr>
+      <th></th>
+      <th>カロリー</th>
+      <th>タンパク質</th>
+      <th>脂質</th>
+      <th>炭水化物</th>
+    </tr>
+    <tr>
+      <th>目標</th>
+      <th><%= calorie_of_day %>kcal</th>
+      <th><%= current_user.calorie.protein %>g</th>
+      <th><%= current_user.calorie.fat %>g</th>
+      <th><%= current_user.calorie.carbohydrate %>g</th>
+    </tr>
+    <tr>
+      <th>あと</th>
+      <th><%= calorie_of_day - calorie_sum %>kcal</th>
+      <th><%= current_user.calorie.protein - @foods.sum(:protein) %>g</th>
+      <th><%= current_user.calorie.fat - @foods.sum(:fat) %>g</th>
+      <th><%= current_user.calorie.carbohydrate - @foods.sum(:carbohydrate) %>g</th>
+    </tr>
+  </table>
+
+<% end %>
 
 <h2>今日食べたもの</h2>
 
@@ -30,7 +60,7 @@
 
   <tr>
     <th>合計</th>
-    <th><%= @foods.sum(:protein) * 4 + @foods.sum(:fat) * 9 + @foods.sum(:carbohydrate) * 4 %>kcal</th>
+    <th><%= calorie_sum %>kcal</th>
     <th><%= @foods.sum(:protein) %>g</th>
     <th><%= @foods.sum(:fat) %>g</th>
     <th><%= @foods.sum(:carbohydrate) %>g</th>
