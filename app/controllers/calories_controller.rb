@@ -1,6 +1,7 @@
 class CaloriesController < ApplicationController
 
   def new
+    current_user.calorie.destroy unless current_user.calorie.nil?
     @calorie = current_user.build_calorie
   end
 
