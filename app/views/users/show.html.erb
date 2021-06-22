@@ -69,5 +69,9 @@
 </table>
 
 <%= link_to "食材登録", new_food_path %>
-<%= link_to "カロリー設定", new_calory_path %>
+<% if current_user.calorie.nil?%>
+  <%= link_to "目標カロリー設定", new_calory_path %>
+<% else %>
+  <%= link_to "目標カロリー設定", edit_calory_path %>
+<% end %>
 <%= link_to "過去の登録", history_user_path(@user) %>
