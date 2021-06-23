@@ -1,4 +1,5 @@
 class CaloriesController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @calorie = current_user.build_calorie
