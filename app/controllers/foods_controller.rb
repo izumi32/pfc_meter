@@ -1,6 +1,10 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+
+  end
+
   def new
     @food = Form::FoodCollection.new
   end
@@ -35,6 +39,11 @@ class FoodsController < ApplicationController
     @user = User.find(food.user_id)
     food.destroy
     redirect_to @user
+  end
+
+  def search
+    food_name = params[:food_name]
+    redirect_to foods_path
   end
 
   private

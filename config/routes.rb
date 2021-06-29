@@ -8,6 +8,13 @@ Rails.application.routes.draw do
       post :history
     end
   end
-  resources :foods
+
+  resources :foods do
+    collection do
+      post :search
+    end
+  end
+
   resources :calories
+
 end
