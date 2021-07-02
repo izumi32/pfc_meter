@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :foods do
     collection do
+      get :search
       post :search
     end
   end

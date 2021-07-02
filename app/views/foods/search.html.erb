@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <td>食品名</td>
+    <td>カロリー</td>
+    <td>タンパク質</td>
+    <td>脂質</td>
+    <td>炭水化物</td>
+  </tr>
+  <% @results["items"].each do |result| %>
+    <tr>
+      <td><%= result["food_name"] %></td>
+      <td><%= result["calorie"] %></td>
+      <td><%= result["protein"] %></td>
+      <td><%= result["fat"] %></td>
+      <td><%= result["carbohydrate"] %></td>
+      <td>登録</td>
+    </tr>
+  <% end %>
+</table>

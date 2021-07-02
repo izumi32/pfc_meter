@@ -42,8 +42,28 @@ class FoodsController < ApplicationController
   end
 
   def search
-    food_name = params[:food_name]
-    redirect_to foods_path
+    food_name = params[:form_food_collection][:food_name]
+
+    uri = URI.parse URI.encode("https://apex.oracle.com/pls/apex/izumi/food/#{food_name}")
+    @query = uri.query
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    response = http.start do |http|
+      http.get(uri.request_uri)
+    end
+
+    begin
+      @results = JSON.parse(response.body)
+    
+      respond_to do |format|
+        format.html { render :show }
+        format.json
+      end
+
+    rescue => e
+      @message = "e.message"
+    end
   end
 
   private
