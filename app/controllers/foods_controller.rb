@@ -32,7 +32,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @user = User.find(@food.user_id)
     if @food.update(food_params)
-      flash[:success] = "食材情報を更新しました"
+      flash[:success] = "食材を更新しました"
       redirect_to user_path(@user)
     else
       render 'foods/edit'
@@ -43,6 +43,7 @@ class FoodsController < ApplicationController
     food = Food.find(params[:id])
     @user = User.find(food.user_id)
     food.destroy
+    flash[:danger] = "食材を削除しました"
     redirect_to @user
   end
 

@@ -1,4 +1,14 @@
-<h1>食材登録</h1>
+<h1>食材を検索して登録</h1>
+
+<%= form_with(model: @food, url: search_foods_path, method: :post, local: true) do |f| %>
+
+  <%= f.label :food_name, "食材名" %>
+  <%= f.text_field :food_name, class: "form-controll" %>
+
+  <%= f.submit "検索", class: "btn btn-primaary" %>
+<% end %>
+
+<h1>食材を入力して登録</h1>
 
 <%= form_with(model: @food, url: foods_path, method: :post, local: true) do |form| %>
 
@@ -25,14 +35,4 @@
 
   <%= form.submit "登録", class: "btn btn-primary" %>
 
-<% end %>
-
-<h1>食材検索</h1>
-
-<%= form_with(model: @food, url: search_foods_path, method: :post, local: true) do |f| %>
-
-  <%= f.label :food_name, "食材名" %>
-  <%= f.text_field :food_name, class: "form-controll" %>
-
-  <%= f.submit "検索", class: "btn btn-primaary" %>
 <% end %>
