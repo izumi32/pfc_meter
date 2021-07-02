@@ -10,7 +10,12 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Form::FoodCollection.new(food_collection_params)
+    if params[:food].nil?
+      @food = Form::FoodCollection.new(food_collection_params)
+    else
+      @food = current_user.foods.build(food_params)
+    end
+
     if @food.save
       flash[:success] = "食材を登録しました"
       redirect_to current_user
@@ -55,7 +60,7 @@ class FoodsController < ApplicationController
 
     begin
       @results = JSON.parse(response.body)
-    
+
       respond_to do |format|
         format.html { render :show }
         format.json

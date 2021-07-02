@@ -13,7 +13,17 @@
       <td><%= result["protein"] %></td>
       <td><%= result["fat"] %></td>
       <td><%= result["carbohydrate"] %></td>
-      <td>登録</td>
+      <td>
+        <%= button_to "登録", { controller: 'foods', action: 'create' },
+        { params: { food: {
+              food_name: result["food_name"],
+              calorie: result["calorie"],
+              protein: result["protein"],
+              fat: result["fat"],
+              carbohydrate: result["carbohydrate"],
+              date: Time.now,
+              amount: 100 } } } %>
+      </td>
     </tr>
   <% end %>
 </table>
