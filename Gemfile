@@ -31,6 +31,7 @@ gem 'simple_calendar', '~> 2.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'bootstrap-sass', '3.4.1'
 
 
 group :development, :test do
