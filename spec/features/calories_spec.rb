@@ -26,7 +26,7 @@ RSpec.feature "Calories", type: :feature do
     expect(user.calorie.carbohydrate).to eq 350
   end
 
-  scenario "目安カロリー更新" ,focus: true do
+  scenario "目安カロリー更新" do
     click_link "カロリー設定"
     fill_in "タンパク質", with: 130
     fill_in "脂質", with: 60

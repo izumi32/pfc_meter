@@ -86,13 +86,15 @@ RSpec.feature "Foods", type: :feature do
     expect(page).to_not have_content "削除前"
   end
 
-  # scenario "食材を検索" do
-  #   click_link "食材登録"
-  #
-  #   fill_in "食材名", with: "卵", match: :first
-  #   click_button "検索"
-  #
-  #   click_link "卵"
-  # end
+  scenario "食材を検索" do
+    click_link "食材登録"
+
+    fill_in "form_food_collection_food_name", with: "卵"
+    click_button "検索"
+
+    click_button "登録", match: :first
+
+    expect(page).to have_content "あひる卵　ピータン"
+  end
 
 end
