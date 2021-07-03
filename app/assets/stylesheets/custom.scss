@@ -1,2 +1,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  padding-top: 60px;
+}
+
+// header
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: x-large;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  text-decoration: none;
+}
+
+header {
+  background-color: #FF9933;
+}
+
+.nav li a{
+  color: white;
+  font-size: medium;
+}
+
+.nav li a:hover{
+  background-color: #FF9933;
+  color: #FFDBC9;
+}
