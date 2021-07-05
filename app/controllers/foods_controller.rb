@@ -50,25 +50,31 @@ class FoodsController < ApplicationController
   def search
     food_name = params[:form_food_collection][:food_name]
 
-    uri = URI.parse URI.encode("https://apex.oracle.com/pls/apex/izumi/food/#{food_name}")
-    @query = uri.query
+    unless food_name.empty?
 
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    response = http.start do |http|
-      http.get(uri.request_uri)
-    end
+      uri = URI.parse URI.encode("https://apex.oracle.com/pls/apex/izumi/food/#{food_name}")
+      @query = uri.query
 
-    begin
-      @results = JSON.parse(response.body)
-
-      respond_to do |format|
-        format.html { render :show }
-        format.json
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      response = http.start do |http|
+        http.get(uri.request_uri)
       end
 
-    rescue => e
-      @message = "e.message"
+      begin
+        @results = JSON.parse(response.body)
+
+        respond_to do |format|
+          format.html { render :show }
+          format.json
+        end
+
+      rescue => e
+        @message = "e.message"
+      end
+
+    else
+      redirect_to new_food_path
     end
   end
 
