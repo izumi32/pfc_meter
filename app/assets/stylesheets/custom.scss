@@ -105,23 +105,21 @@ table td {
 .link {
   margin-top: 30px;
   margin-right: 10px;
-  background-color: #FF9933;
-  color: white;
-}
-
-.link:hover {
-  color: #FFDBC9;
 }
 
 // food new
 
-.new-food-btn {
-  width: 100%;
-  margin: 20px;
+.btn {
   background-color: #FF9933;
   color: white;
 }
 
-.new-food-btn:hover {
+.btn:hover {
+  background-color: #FF9933;
   color: #FFDBC9;
+}
+
+.new-food-btn {
+  width: 100%;
+  margin: 20px;
 }
