@@ -85,3 +85,30 @@ header {
     color: #721c24;
   }
 }
+
+// user
+
+table th {
+  width: 100px;
+  padding: 5px;
+  font-size: medium;
+  text-align: center;
+}
+
+table td {
+  width: 100px;
+  padding: 5px;
+  font-size: medium;
+  text-align: right;
+}
+
+.link {
+  margin-top: 30px;
+  margin-right: 10px;
+  background-color: #FF9933;
+  color: white;
+}
+
+.link:hover {
+  color: #FFDBC9;
+}

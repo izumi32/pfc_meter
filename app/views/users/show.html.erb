@@ -4,7 +4,7 @@
 
   <% calorie_of_day = current_user.calorie.protein * 4 + current_user.calorie.fat * 9 + current_user.calorie.carbohydrate * 4 %>
   <% calorie_sum = @foods.sum(:protein) * 4 + @foods.sum(:fat) * 9 + @foods.sum(:carbohydrate) * 4 %>
-  <table>
+  <table border="2">
     <tr>
       <th></th>
       <th>カロリー</th>
@@ -14,17 +14,17 @@
     </tr>
     <tr>
       <th>目標</th>
-      <th><%= calorie_of_day %>kcal</th>
-      <th><%= current_user.calorie.protein %>g</th>
-      <th><%= current_user.calorie.fat %>g</th>
-      <th><%= current_user.calorie.carbohydrate %>g</th>
+      <td><%= calorie_of_day %>kcal</td>
+      <td><%= current_user.calorie.protein %>g</td>
+      <td><%= current_user.calorie.fat %>g</td>
+      <td><%= current_user.calorie.carbohydrate %>g</td>
     </tr>
     <tr>
       <th>あと</th>
-      <th><%= calorie_of_day - calorie_sum %>kcal</th>
-      <th><%= current_user.calorie.protein - @foods.sum(:protein) %>g</th>
-      <th><%= current_user.calorie.fat - @foods.sum(:fat) %>g</th>
-      <th><%= current_user.calorie.carbohydrate - @foods.sum(:carbohydrate) %>g</th>
+      <td><%= calorie_of_day - calorie_sum %>kcal</td>
+      <td><%= current_user.calorie.protein - @foods.sum(:protein) %>g</td>
+      <td><%= current_user.calorie.fat - @foods.sum(:fat) %>g</td>
+      <td><%= current_user.calorie.carbohydrate - @foods.sum(:carbohydrate) %>g</td>
     </tr>
   </table>
 
@@ -32,7 +32,7 @@
 
 <h2>今日食べたもの</h2>
 
-<table>
+<table border="2">
   <tr>
     <th>食材名</th>
     <th>カロリー</th>
@@ -46,32 +46,32 @@
   <% @foods.each do |food| %>
   <% calorie = food.protein * 4 + food.fat * 9 + food.carbohydrate * 4 %>
   <tr>
-    <th><%= food.food_name %></th>
-    <th><%= calorie %>kcal</th>
-    <th><%= food.protein%>g</th>
-    <th><%= food.fat %>g</th>
-    <th><%= food.carbohydrate %>g</th>
-    <th><%= food.amount %>%</th>
-    <th><%= food.remarks %></th>
-    <th><%= link_to "編集", edit_food_path(food) %></th>
-    <th><%= link_to "削除", food, method: :delete %></th>
+    <td><%= food.food_name %></td>
+    <td><%= calorie %>kcal</td>
+    <td><%= food.protein%>g</td>
+    <td><%= food.fat %>g</td>
+    <td><%= food.carbohydrate %>g</td>
+    <td><%= food.amount %>%</td>
+    <td><%= food.remarks %></td>
+    <td><%= link_to "編集", edit_food_path(food) %></td>
+    <td><%= link_to "削除", food, method: :delete %></td>
   </tr>
   <% end %>
 
   <tr>
     <th>合計</th>
-    <th><%= calorie_sum %>kcal</th>
-    <th><%= @foods.sum(:protein) %>g</th>
-    <th><%= @foods.sum(:fat) %>g</th>
-    <th><%= @foods.sum(:carbohydrate) %>g</th>
+    <td><%= calorie_sum %>kcal</td>
+    <td><%= @foods.sum(:protein) %>g</td>
+    <td><%= @foods.sum(:fat) %>g</td>
+    <td><%= @foods.sum(:carbohydrate) %>g</td>
   </tr>
 
 </table>
 
-<%= link_to "食材登録", new_food_path %>
+<%= link_to "食材登録", new_food_path, class: "btn link" %>
 <% if current_user.calorie.nil?%>
-  <%= link_to "目標カロリー設定", new_calory_path %>
+  <%= link_to "目標カロリー設定", new_calory_path, class: "btn link" %>
 <% else %>
-  <%= link_to "目標カロリー設定", edit_calory_path %>
+  <%= link_to "目標カロリー設定", edit_calory_path, class: "btn link" %>
 <% end %>
-<%= link_to "過去の登録", history_user_path(@user) %>
+<%= link_to "過去の登録", history_user_path(@user), class: "btn link" %>
