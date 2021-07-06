@@ -12,27 +12,41 @@
 
 <%= form_with(model: @food, url: foods_path, method: :post, local: true) do |form| %>
 
-  <%= form.fields_for :foods do |f| %>
-    <%= f.label :food_name, "食材名" %>
-    <%= f.text_field :food_name, class: "form-controll" %>
+  <div class="row">
+    <%= form.fields_for :foods do |f| %>
 
-    <%= f.label :protein, "タンパク質" %>
-    <%= f.text_field :protein, class: "form-controll" %>
+      <div class="col-sm-2">
+        <%= f.label :food_name, "食材名" %>
+        <%= f.text_field :food_name, class: "form-controll" %>
+      </div>
 
-    <%= f.label :fat, "脂質" %>
-    <%= f.text_field :fat, class: "form-controll" %>
+      <div class="col-sm-2">
+        <%= f.label :protein, "タンパク質" %>
+        <%= f.text_field :protein, class: "form-controll" %>
+      </div>
 
-    <%= f.label :carbohydrate, "炭水化物" %>
-    <%= f.text_field :carbohydrate, class: "form-controll" %>
+      <div class="col-sm-2">
+        <%= f.label :fat, "脂質" %>
+        <%= f.text_field :fat, class: "form-controll" %>
+      </div>
 
-    <%= f.label :date, "日付" %>
-    <%= f.datetime_field :date, class: "form-controll" %>
+      <div class="col-sm-2">
+        <%= f.label :carbohydrate, "炭水化物" %>
+        <%= f.text_field :carbohydrate, class: "form-controll" %>
+      </div>
 
-    <%= f.label :amount, "量" %>
-    <%= f.text_field :amount, class: "form-controll" %>
+      <div class="col-sm-2">
+        <%= f.label :date, "日付" %>
+        <%= f.datetime_field :date, class: "form-controll" %>
+      </div>
 
-  <% end %>
+      <div class="col-sm-2">
+        <%= f.label :amount, "量" %>
+        <%= f.text_field :amount, class: "form-controll" %>
+      </div>
 
-  <%= form.submit "登録", class: "btn btn-primary" %>
+    <% end %>
 
+    <%= form.submit "登録", class: "btn btn-lg new-food-btn" %>
+  </div>
 <% end %>
