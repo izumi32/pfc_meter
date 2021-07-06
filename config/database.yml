@@ -51,9 +51,6 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  # database: pfc_meter_production
-  # username: pfc_meter
-  # password: <%= ENV['PFC_METER_DATABASE_PASSWORD'] %>
+  database: pfc_meter_production
+  username: pfc_meter
+  password: <%= ENV['PFC_METER_DATABASE_PASSWORD'] %>
