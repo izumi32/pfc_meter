@@ -1,9 +1,6 @@
-caching_sha2_passwordをmysql_native_passwordに書き換え
-コンテナ再起動
-コンテナ再構築
-practice_dir_testをcreate
+# PFC Meter
+URL: https://keizumi-pfemeter.herokuapp.com/
 
-$ docker-compose run --rm web rake db:create    
-$ docker-compose run web bin/rails db:migrate RAILS_ENV=test
-
-ターミナル上でbundle exec rake db:schema:loadできる
+食事のカロリー管理ツールです。
+1日の目標カロリーを設定し、食べた食事を記録していきます。
+食材のカロリーを手入力、もしくはデータベースから検索して登録することができます。

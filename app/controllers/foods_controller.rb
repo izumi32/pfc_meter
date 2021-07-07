@@ -87,6 +87,6 @@ class FoodsController < ApplicationController
 
   def food_collection_params
     params.require(:form_food_collection)
-    .permit(foods_attributes: [:food_name, :protein, :fat, :carbohydrate, :date, :amount])
+    .permit(foods_attributes: [:food_name, :protein, :fat, :carbohydrate, :date, :amount, :remarks])
   end
 end

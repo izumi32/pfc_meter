@@ -40,13 +40,18 @@
         <%= f.datetime_field :date, class: "form-controll" %>
       </div>
 
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <%= f.label :amount, "量" %>
         <%= f.text_field :amount, class: "form-controll" %>
       </div>
 
+      <div class="col-sm-1">
+        <%= f.label :remarks, "備考" %>
+        <%= f.text_field :remarks, class: "form-controll" %>
+      </div>
+
     <% end %>
 
-    <%= form.submit "登録", class: "btn btn-lg new-food-btn" %>
+    <%= form.submit "登録", class: "btn btn-lg food-btn" %>
   </div>
 <% end %>

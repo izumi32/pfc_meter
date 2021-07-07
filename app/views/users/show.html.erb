@@ -46,15 +46,15 @@
   <% @foods.each do |food| %>
   <% calorie = food.protein * 4 + food.fat * 9 + food.carbohydrate * 4 %>
   <tr>
-    <td><%= food.food_name %></td>
+    <th><%= food.food_name %></th>
     <td><%= calorie %>kcal</td>
     <td><%= food.protein%>g</td>
     <td><%= food.fat %>g</td>
     <td><%= food.carbohydrate %>g</td>
     <td><%= food.amount %>%</td>
     <td><%= food.remarks %></td>
-    <td><%= link_to "編集", edit_food_path(food) %></td>
-    <td><%= link_to "削除", food, method: :delete %></td>
+    <th><%= link_to "編集", edit_food_path(food) %></th>
+    <th><%= link_to "削除", food, method: :delete %></th>
   </tr>
   <% end %>
 
