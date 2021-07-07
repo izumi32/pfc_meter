@@ -1,9 +1,9 @@
 # PFC Meter
 URL: https://keizumi-pfemeter.herokuapp.com/
 
-食事のカロリー管理ツールです。
-1日の目標カロリーを設定し、食べた食事を記録していきます。
-食材のカロリーを手入力、もしくはデータベースから検索して登録することができます。
+食事のカロリー管理ツールです。  
+1日の目標カロリーを設定し、食べた食事を記録していきます。  
+食材のカロリーを手入力、もしくはデータベースから検索して登録することができます。  
 
 ## 使い方
 
@@ -15,7 +15,7 @@ URL: https://keizumi-pfemeter.herokuapp.com/
      ![readme2](https://user-images.githubusercontent.com/74642678/124723904-7515cd80-df46-11eb-9f8c-061b79298812.png)
 
     「登録」をクリック
-     ![readme3](https://user-images.githubusercontent.com/74642678/124724002-8d85e800-df46-11eb-94ef-ce23d3c6a571.png)
+     ![readme3](https://user-images.githubusercontent.com/74642678/124741251-751dc980-df56-11eb-9c43-5b5118054c77.png)
 
   2. 手入力の場合
      食材の情報を入力し「登録」をクリック
@@ -24,8 +24,6 @@ URL: https://keizumi-pfemeter.herokuapp.com/
 2. 「目標カロリー設定」をクリック
     目標値を入力し「登録」をクリック
     ![readme4](https://user-images.githubusercontent.com/74642678/124724265-d3db4700-df46-11eb-8649-83b2c4ddbc1d.png)
-
-![readme5](https://user-images.githubusercontent.com/74642678/124737457-ee1b2200-df52-11eb-8071-90ee26eab0dc.png)
 
 ## 使用技術
 
