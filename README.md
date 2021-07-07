@@ -8,26 +8,21 @@ URL: https://keizumi-pfemeter.herokuapp.com/
 ## 使い方
 
 1.  ユーザー登録後、「食材登録」をクリック  
-
 ![readme1](https://user-images.githubusercontent.com/74642678/124723783-56afd200-df46-11eb-851f-714d88bb9198.png)
 
     - データベースから登録する場合  
         - 食材名を入力し「検索」をクリック  
-
         ![readme2](https://user-images.githubusercontent.com/74642678/124723904-7515cd80-df46-11eb-9f8c-061b79298812.png)
 
         - 「登録」をクリック  
-
-       ![readme3](https://user-images.githubusercontent.com/74642678/124741637-e2315f00-df56-11eb-9259-516161e1626c.png)
+        ![readme3](https://user-images.githubusercontent.com/74642678/124741637-e2315f00-df56-11eb-9259-516161e1626c.png)
 
     - 手入力の場合  
-       - 食材の情報を入力し「登録」をクリック
-
+       - 食材の情報を入力し「登録」をクリック  
        ![readme6](https://user-images.githubusercontent.com/74642678/124737286-c4fa9180-df52-11eb-88f7-36001a351326.png)
 
 2. 「目標カロリー設定」をクリック  
     目標値を入力し「登録」をクリック  
-      
     ![readme4](https://user-images.githubusercontent.com/74642678/124724265-d3db4700-df46-11eb-8649-83b2c4ddbc1d.png)
 
 ## 使用技術
