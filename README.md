@@ -15,7 +15,7 @@ URL: https://keizumi-pfemeter.herokuapp.com/
      ![readme2](https://user-images.githubusercontent.com/74642678/124723904-7515cd80-df46-11eb-9f8c-061b79298812.png)
 
     「登録」をクリック
-     ![readme3](https://user-images.githubusercontent.com/74642678/124741251-751dc980-df56-11eb-9c43-5b5118054c77.png)
+     ![readme3](https://user-images.githubusercontent.com/74642678/124741637-e2315f00-df56-11eb-9259-516161e1626c.png)
 
   2. 手入力の場合
      食材の情報を入力し「登録」をクリック
