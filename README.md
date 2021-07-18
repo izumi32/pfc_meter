@@ -1,5 +1,5 @@
 # PFC Meter
-URL: https://keizumi-pfemeter.herokuapp.com/
+URL: http://35.75.29.135/
 
 食事のカロリー管理ツールです。  
 1日の目標カロリーを設定し、食べた食事を記録していきます。  
@@ -30,6 +30,7 @@ URL: https://keizumi-pfemeter.herokuapp.com/
 - Ruby 2.6.6
 - Ruby on Rails 6.1.3
 - MySQL 8.0.23
+- AWS
 - Puma
 - Docker/Docker-compose
 - CircleCi CI/CD
@@ -38,7 +39,7 @@ URL: https://keizumi-pfemeter.herokuapp.com/
 
 ## 機能一覧
 
-- ユーザー登録、ログイン(devise)
+- ユーザー登録、ログイン機能(devise)
 - 登録機能
 - 検索機能(Oracle APEX API)
 
