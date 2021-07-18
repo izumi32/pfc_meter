@@ -27,11 +27,14 @@ URL: http://35.75.29.135/
 
 ## 使用技術
 
+![インフラ](https://user-images.githubusercontent.com/74642678/126076293-ccbbea5f-87cc-4f11-ba30-51532fc1bdf9.jpg)
+
 - Ruby 2.6.6
 - Ruby on Rails 6.1.3
 - MySQL 8.0.23
 - AWS
-- Puma
+  - VPC
+  - EC2
 - Docker/Docker-compose
 - CircleCi CI/CD
 - RSpec
