@@ -27,7 +27,7 @@ URL: http://35.75.29.135/
 
 ## 使用技術
 
-![インフラ](https://user-images.githubusercontent.com/74642678/126076293-ccbbea5f-87cc-4f11-ba30-51532fc1bdf9.jpg)
+![インフラ](https://user-images.githubusercontent.com/74642678/126076565-271a0a50-513a-4934-80e5-a65602697a54.jpg)
 
 - Ruby 2.6.6
 - Ruby on Rails 6.1.3
