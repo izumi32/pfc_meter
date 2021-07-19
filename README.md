@@ -27,8 +27,6 @@ URL: http://35.75.29.135/
 
 ## 使用技術
 
-![インフラ](https://user-images.githubusercontent.com/74642678/126076565-271a0a50-513a-4934-80e5-a65602697a54.jpg)
-
 - Ruby 2.6.6
 - Ruby on Rails 6.1.3
 - MySQL 8.0.23
@@ -39,6 +37,8 @@ URL: http://35.75.29.135/
 - CircleCi CI/CD
 - RSpec
 - Oracle APEX API
+
+![インフラ](https://user-images.githubusercontent.com/74642678/126076565-271a0a50-513a-4934-80e5-a65602697a54.jpg)
 
 ## 機能一覧
 
