@@ -7,9 +7,9 @@ RSpec.feature "Foods", type: :feature do
   before do
     visit root_path
     click_link "ログイン"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    fill_in "メールアドレス", with: user.email
+    fill_in "パスワード", with: user.password
+    click_button "ログイン"
   end
 
   scenario "新規の食材を登録" do

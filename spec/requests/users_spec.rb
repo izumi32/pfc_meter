@@ -26,9 +26,9 @@ RSpec.describe "Users", type: :request do
 
     describe "#update" do
       it "userを更新" do
-        patch user_path(user), params: { user: { name: "edit user" } }
+        patch user_path(user), params: { user: { email: "new_email@sample.com" } }
         user.reload
-        expect(user.name).to eq "edit user"
+        expect(user.email).to eq "new_email@sample.com"
       end
 
       it "userを更新後user/showページにリダイレクト" do

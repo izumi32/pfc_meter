@@ -8,9 +8,9 @@ RSpec.feature "Users", type: :feature do
 
     visit root_path
     click_link "ログイン"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    fill_in "メールアドレス", with: user.email
+    fill_in "パスワード", with: user.password
+    click_button "ログイン"
 
     click_link "食材登録"
 
