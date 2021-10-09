@@ -28,6 +28,6 @@ RSpec.feature "Users", type: :feature do
     click_button "表示"
 
     expect(page).to have_content Time.zone.today.strftime("%Y年%m月%d日")
-    expect(page).to have_content "今日の登録"
+    # expect(page).to have_content "今日の登録"
   end
 end

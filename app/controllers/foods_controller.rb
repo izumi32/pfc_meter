@@ -22,6 +22,7 @@ class FoodsController < ApplicationController
     else
       render 'foods/new'
     end
+
   end
 
   def edit
