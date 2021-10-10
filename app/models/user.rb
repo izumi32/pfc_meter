@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :activation_token
   before_save :downcase_email
   before_create :create_activation_digest
   validates :email, presence: true,
