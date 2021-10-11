@@ -3,9 +3,9 @@ class UserMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/account_activation
   def account_activation
-    user = User.new(email: "tonosaki@example.com")
+    # user = User.new(email: "tonosaki@example.com")
+    user = FactoryBot.build(:user)
     user.activation_token = User.new_token
-    p user
     UserMailer.account_activation(user)
   end
 
