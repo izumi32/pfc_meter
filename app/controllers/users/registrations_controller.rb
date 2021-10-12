@@ -14,9 +14,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #
-  # end
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "認証メールを送信しました"
+      redirect_to root_url
+    else
+      render 'devise/registrations/new'
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -63,4 +70,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end
