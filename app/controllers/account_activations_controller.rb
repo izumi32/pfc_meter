@@ -9,7 +9,7 @@ class AccountActivationsController < ApplicationController
       flash[:success] = "アカウントを有効化しました"
       redirect_to user
     else
-      flash[:danger = "有効化できません"]
+      flash[:danger] = "有効化できません"
       redirect_to root_url
     end
   end

@@ -6,6 +6,16 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     @user = User.find_by(email: params[:user][:email])
+    if @user
+      if @user.activated?
+        log_in @user
+      else
+        flash[:warning] = "アカウントが有効化されていません"
+        redirect_to root_url
+      end
+    else
+      render 'new'
+    end
   end
   # GET /resource/sign_in
   # def new
@@ -14,7 +24,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   # def create
-  #
+  #   super
   # end
 
   # DELETE /resource/sign_out
