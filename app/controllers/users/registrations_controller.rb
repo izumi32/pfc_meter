@@ -14,16 +14,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      @user.send_activation_email
-      flash[:info] = "認証メールを送信しました"
-      redirect_to root_url
-    else
-      render 'devise/registrations/new'
-    end
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     @user.send_activation_email
+  #     UserMailer.account_activation(@user).deliver_now
+  #     flash[:info] = "認証メールを送信しました"
+  #     redirect_to root_url
+  #   else
+  #     render 'devise/registrations/new'
+  #   end
+  # end
 
   # GET /resource/edit
   # def edit

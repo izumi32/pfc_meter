@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
 
   resources :calories
-  resources :account_activations, only: [:edit]
+  # resources :account_activations, only: [:edit]
 
 end
