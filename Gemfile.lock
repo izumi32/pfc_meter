@@ -66,7 +66,11 @@ GEM
       execjs (~> 2)
     bcrypt (3.1.16)
     bindex (0.8.1)
+<<<<<<< HEAD
     bootsnap (1.8.1)
+=======
+    bootsnap (1.9.1)
+>>>>>>> advanced-login
       msgpack (~> 1.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -114,7 +118,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (1.0.1)
+    marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.1)
     mini_portile2 (2.6.1)
@@ -122,13 +126,21 @@ GEM
     msgpack (1.4.2)
     mysql2 (0.5.3)
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.12.4)
+=======
+    nokogiri (1.12.5)
+>>>>>>> advanced-login
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
     public_suffix (4.0.6)
+<<<<<<< HEAD
     puma (5.4.0)
+=======
+    puma (5.5.0)
+>>>>>>> advanced-login
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -228,7 +240,11 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+<<<<<<< HEAD
     webpacker (5.4.2)
+=======
+    webpacker (5.4.3)
+>>>>>>> advanced-login
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)

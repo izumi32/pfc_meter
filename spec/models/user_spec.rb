@@ -6,12 +6,12 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.create(:user)
   end
 
-  describe "name" do
-    it "nameが空の時エラーを返す" do
-      @user.name = ""
-      expect(@user).to_not be_valid
-    end
-  end
+  # describe "name" do
+  #   it "nameが空の時エラーを返す" do
+  #     @user.name = ""
+  #     expect(@user).to_not be_valid
+  #   end
+  # end
 
   describe "email" do
     it "emailが空の時エラーを返す" do
