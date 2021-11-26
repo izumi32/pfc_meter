@@ -52,5 +52,6 @@ test:
 production:
   <<: *default
   database: pfc_meter_production
-  username: pfc_meter
-  password: <%= ENV['PFC_METER_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
